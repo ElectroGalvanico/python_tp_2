@@ -29,6 +29,15 @@ import time
 
 comienzo = time.time()
 
+print ("Bienvenido al Casino, es un gusto tenerlo esta noche con nosotros")
+time.sleep(2)
+print ("Usted podra utilizar 50 fichas para ingresar a todos nuestros juegos de azar")
+print ("Diviertase apostando. Pasa el tiempo...")
+
+time.sleep(5)
+
+intervalo = time.time()
+
 fichas = 50
 probabilidad = 0.4
 cant_maxima = 300
@@ -49,7 +58,8 @@ def simulador_apuestas (Fichas , Prob, C_Max):
 
 
 prueba = simulador_apuestas (fichas, probabilidad, cant_maxima )
-print(f"Cantidad de fichas al final de la noche es: {prueba [0]}")
+print ("¡La noche se ha acabado!")
+print (f"Cantidad de fichas al final de la noche es: {prueba [0]}")
 print (f"La cantidad de apuestas antes de perder todas las fichas fue de: {prueba[1]}")
 #print (prueba)
 
@@ -66,5 +76,7 @@ def simulador_prom (Fichas, Prob, C_Max):
 simulador_prom(fichas, probabilidad, cant_maxima)
 
 fin = time.time()
-tiempo_total = (fin - comienzo) * 1000
-print ("El tiempo de ejecucion del programa fue: %.4f milisegundos" %tiempo_total)
+tiempo_parcial = (fin - intervalo) * 1000
+tiempo_total = (fin - comienzo)
+print ("El tiempo de ejecucion de los calculos fue de: %.4f milisegundos" %tiempo_parcial)
+print ("Tiempo total de simulacion de la noche fue de: %.2f segundos" %tiempo_total)
