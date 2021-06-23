@@ -30,11 +30,12 @@ import time
 comienzo = time.time()
 
 print ("Bienvenido al Casino, es un gusto tenerlo esta noche con nosotros")
-time.sleep(2)
+time.sleep(3)
 print ("Usted podra utilizar 50 fichas para ingresar a todos nuestros juegos de azar")
+time.sleep(5)
 print ("Diviertase apostando. Pasa el tiempo...")
 
-time.sleep(5)
+time.sleep(8)
 
 intervalo = time.time()
 
@@ -59,17 +60,20 @@ def simulador_apuestas (Fichas , Prob, C_Max):
 
 prueba = simulador_apuestas (fichas, probabilidad, cant_maxima )
 print ("¡La noche se ha acabado!")
-print (f"Cantidad de fichas al final de la noche es: {prueba [0]}")
 print (f"La cantidad de apuestas antes de perder todas las fichas fue de: {prueba[1]}")
-#print (prueba)
+if prueba[1] == 300:
+	print("Pudo sobrevivir toda la noche con ganancias!")
+	print (f"Cantidad de fichas al final de la noche es: {prueba [0]}")
+else:
+	print("No pudo llegar a las 300 apuestas")
+	print (f"Se quedo sin fichas al final de la noche")
 
 def simulador_prom (Fichas, Prob, C_Max):
 	cont = 20
 	total_apuestas = 0
 	for i in range (cont):
 		prueba = simulador_apuestas (Fichas, Prob, C_Max)
-		total_apuestas +=prueba[1]
-		#print (total_apuestas)
+		total_apuestas +=prueba[1]		
 
 	return print('El promedio total de apuestas es:',round (total_apuestas/20))
 
